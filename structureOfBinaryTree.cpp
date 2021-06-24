@@ -25,6 +25,26 @@ void preOrder(struct Node* root){
     preOrder(root -> right);
 }
 
+void inOrder(struct Node* root){
+
+    if(root == NULL){
+        return;
+    }
+
+    inOrder(root -> left);
+    cout<<root-> data<<" ";
+    inOrder(root -> right);
+}
+
+void postOrder(struct Node* root){
+
+    if(root == NULL){
+        return;
+    }
+
+    
+}
+
 int main(){
 
     struct Node* root = new Node(1);
@@ -32,19 +52,11 @@ int main(){
     root -> left = new Node(2);
     root -> right = new Node(3);
 
-    /*
-                1
-              /   \
-             2     3
-            / \   / \
-             N U L L
-    */
+    root -> left -> left = new Node(4);
+    root -> left -> right = new Node(5);
 
-   root -> left -> left = new Node(4);
-   root -> left -> right = new Node(5);
-
-   root -> right -> left = new Node(6);
-   root -> right -> right = new Node(7);
+    root -> right -> left = new Node(6);
+    root -> right -> right = new Node(7);
 
     /*
                 1
@@ -54,7 +66,8 @@ int main(){
            4   5 6   7
     */
 
-   preOrder(root);
+    //preOrder(root);
+    inOrder(root);
 
     return 0;
 }
