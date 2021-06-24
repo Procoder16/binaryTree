@@ -1,6 +1,23 @@
 #include<iostream>
 using namespace std;
 
+/*
+    For Pre-Order Traversal:
+        1. Print the value of the root.
+        2. Traverse the left side of the tree.
+        3. Return back and traverse the right side of the tree.
+
+    For In-Order Traversal:
+        1. First Traverse the entire left side.
+        2. On reaching the last element, print and return.
+        3. Traverse the right side of the binary tree.
+
+    For Post-Order Traversal:
+        1. First Traverse the entire left and on reaching last print.
+        2. Then go the right side and the at the end print the value.
+        3. In the end, print the root value.        
+*/
+
 struct Node
 {
     int data;
