@@ -8,17 +8,26 @@ struct Node
     Node* right;
 
     Node(int val){
-        val = data;
+        data = val;
         left = NULL;
         right = NULL;
     }
 };
 
+void preOrder(struct Node* root){
 
+    if(root == NULL){
+        return;
+    }
+
+    cout<<root -> data<<" ";
+    preOrder(root -> left);
+    preOrder(root -> right);
+}
 
 int main(){
 
-    Node* root = new Node(1);
+    struct Node* root = new Node(1);
 
     root -> left = new Node(2);
     root -> right = new Node(3);
@@ -34,13 +43,18 @@ int main(){
    root -> left -> left = new Node(4);
    root -> left -> right = new Node(5);
 
+   root -> right -> left = new Node(6);
+   root -> right -> right = new Node(7);
+
     /*
                 1
               /   \
              2     3
             / \   / \
-           4   5  NULL
+           4   5 6   7
     */
+
+   preOrder(root);
 
     return 0;
 }
