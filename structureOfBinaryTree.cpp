@@ -42,7 +42,9 @@ void postOrder(struct Node* root){
         return;
     }
 
-    
+    postOrder(root -> left);
+    postOrder(root -> right);
+    cout<<root -> data<<" ";
 }
 
 int main(){
@@ -67,7 +69,8 @@ int main(){
     */
 
     //preOrder(root);
-    inOrder(root);
+    //inOrder(root);
+    postOrder(root);
 
     return 0;
 }
