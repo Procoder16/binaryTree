@@ -1,6 +1,12 @@
 #include<iostream>
 using namespace std;
 
+/*
+    Approach here is quite simple:
+        1. We will call the recursive function for the left and the right separately assuming them to return the total sum.
+        2. We will add 1 because we passed only left and right and the root was remaining. 
+*/
+
 struct Node
 {
     int data;
@@ -37,7 +43,7 @@ int main(){
     /*
                 1
               /   \
-             2     3
+             2     3        => 7
             / \   / \
            4   5 6   7
     */
