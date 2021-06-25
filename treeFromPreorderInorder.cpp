@@ -45,7 +45,7 @@ void inorderPrint(Node* root){
 Node* buildTree(int preorder[], int inorder[], int start, int end){
 
     static int idx = 0; // static is made so that when the recursion is called next time, the value is updated or else it would be 0 or 1 only
-    if(start > end){
+    if(start > end){  // base case
         return NULL;
     }
 
