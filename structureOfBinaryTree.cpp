@@ -16,7 +16,18 @@ using namespace std;
     For Post-Order Traversal:
         1. First Traverse the entire left and on reaching last print.
         2. Then go the right side and the at the end print the value.
-        3. In the end, print the root value.        
+        3. In the end, print the root value.   
+
+    For Level-Order Traversal:
+        1. We will do with the help of queue.
+        2. First we will push the root element.
+        3. Then push a null.
+        4. Then we will loop until the queue becomes empty.
+        5. Approach is: 
+            a. For each level we will first print the value.
+            b. analyse the left and right of the node and then add them to the queue from the back.
+            c. Once completed add a null again and then repeat the same. 
+
 */
 
 struct Node
