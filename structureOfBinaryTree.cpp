@@ -19,15 +19,13 @@ using namespace std;
         3. In the end, print the root value.   
 
     For Level-Order Traversal:
+        !!! -> THE APPROACH I FOLLOWED HERE IS ALSO CALLED BREADTH-FIRST SEARCH(BFS) TRAVERSAL
         1. We will do with the help of queue.
-        2. First we will push the root element.
-        3. Then push a null.
-        4. Then we will loop until the queue becomes empty.
-        5. Approach is: 
-            a. For each level we will first print the value.
-            b. analyse the left and right of the node and then add them to the queue from the back.
-            c. Once completed add a null again and then repeat the same. 
-
+        2. First we will push the root element to the queue.
+        3. Then run a while loop until the queue is empty.
+        4. We will print the front element.
+        5. Now we will check if the left half of the node is present, then push the child to the queue
+        6. Same with the right child and the proces will go on until the queue becomes empty.
 */
 
 struct Node
@@ -78,28 +76,19 @@ void postOrder(struct Node* root){
 
 void levelOrder(Node* root){
 
-    if(root == NULL){
-        return;
-    }
-
     queue<Node*> q;
     q.push(root);
-    q.push(NULL);
 
     while(!q.empty()){
-        Node* node = q.front();
+        Node* f = q.front();
         q.pop();
-        if(node != NULL){
-            cout<<node -> data<<" ";
-            if(node -> left){
-                q.push(node -> left);
-            }
-            if(node -> right){
-                q.push(node -> right);
-            }
+        cout<<f -> data<<" ";
+
+        if(f -> left){
+            q.push(f -> left);
         }
-        else if(!q.empty()){
-            q.push(NULL);
+        if(f -> right){
+            q.push(f -> right);            
         }
     }
 }
