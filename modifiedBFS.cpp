@@ -55,9 +55,11 @@ void modifiedBFS(Node* root){
                 q.push(temp -> right);
             }
         }
-        else if(!q.empty()){
-            q.push(NULL);
+        else{
             cout<<endl;
+            if(!q.empty()){
+                q.push(NULL);
+            }
         }
     }
 }
