@@ -3,10 +3,15 @@ using namespace std;
 
 /*  The diameter of a binary tree may be defined as the longest distance between any two leaf nodes of the tree.
     The approach would be quite simple where we will do the following things:
-        > call a recursive function to calculate the diameter and also the height for the left and repeat the same for the right side also.
-        > find the max of the two and,
-            -> if the diameter is through the root, add 1, else no need 
-        
+        There could be three possibilities:
+            -> The diameter passes through the root
+                > For this recursively call find the height of the left and the right subtree, and then add them and store in op1
+            -> The diameter lies in the left subtree
+                > For this recursively call the diameter calculation function and store the value in op2
+            ->The  diamater lies in the right subtree
+                > For this do the same recursive calling for the diameter of right subtree and store the value in op3       
+
+        After all these, we have to find the max of op1, op2, op3                
 */
 
 struct Node
@@ -22,9 +27,29 @@ struct Node
     }
 };
 
+int heightOfBinaryTree(Node* root){
+    if(root == NULL){
+        return 0;
+    }
+
+    return max(heightOfBinaryTree(root -> left), heightOfBinaryTree(root -> right)) + 1;
+}
+
 int calcDiameter(Node* root){
 
-    
+    if(root == NULL){
+        return 0;
+    }
+
+    int h1 = heightOfBinaryTree(root -> left);
+    int h2 = heightOfBinaryTree(root -> right);
+
+    int op1 = h1 + h2;
+
+    int op2 = calcDiameter(root -> left);
+    int op3 = calcDiameter(root -> right);
+
+    return max(op1, max(op2, op3));
 }
 
 int main(){
