@@ -2,6 +2,14 @@
 #include<queue>
 using namespace std;
 
+/*
+    The approach to be followed here is very naive:
+        > Since we have to build a balanced tree, we would find the mid element of the array;
+        > Create a node out of it.
+        > Then for its left subtree, call the recursive function with the start element as the start, and end to be mid - 1
+        > Similarly for the right subtree, call the recursive function with start as mid + 1 and end as end itself
+        > the base case would be if start becomes greater than end 
+*/
 struct Node{
     int data;
     Node* left;
