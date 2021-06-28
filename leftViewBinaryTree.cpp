@@ -65,6 +65,22 @@ void leftViewBFS(Node* root){
 
 }
 
+void leftViewDFS(Node* root, int level, int &maxlevel){  
+    // we are using reference so that we have the latest max level everytime
+
+    if(root == NULL){
+        return;
+    }
+
+    if(level > maxlevel){
+        cout<<root -> data<<" ";
+        maxlevel = level;
+    }
+    leftViewDFS(root -> left, level + 1, maxlevel);  
+    // calling for the left first because we need the left view here
+    leftViewDFS(root -> right, level + 1, maxlevel);
+}
+
 int main(){
 
     Node* root = new Node(1);
@@ -89,7 +105,9 @@ int main(){
          8  
     */
 
-   leftViewBFS(root);
+   //leftViewBFS(root);
+   int maxlevel = -1;
+   leftViewDFS(root, 0, maxlevel);
 
    return 0;
 }
