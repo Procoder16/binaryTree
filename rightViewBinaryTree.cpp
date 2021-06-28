@@ -10,7 +10,7 @@
         > We will store the front node of the queue in a temp node and then we pop the front node.
         > If the front node is not NULL
             -> store the data of the node in a variable
-            -> check for its left and right subtree respectively
+            -> check for its left and right subtree respectively and if present, push them to the queue
         > If the front node is NULL
             -> we print the last value that was stored in the variable
             -> if the queue is still not empty, push another NULL to it             
