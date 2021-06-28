@@ -14,7 +14,14 @@
             -> if present push them to the queue.
         > If the front node is NULL
             -> we print the data of the front node (which is now the next element after the NULL was popped)
-            -> if the queue is still not empty, push another NULL to the queue             
+            -> if the queue is still not empty, push another NULL to the queue    
+
+        Now, the DFS approach goes something like this:
+        >  first of all the function itself accepts three values, the root node, current level and the max level
+        > we pass the current level as 1 and max level as -1 bacause we know the root has to be printed in any case
+        > now we check the base case, and then check whether the current level is greater than the max level
+            -> if yes, print the data of the node and assign max level with the value of the level
+        > now, since we need to print the left view, we call the recursive function first for the left view and then for the right view             
 */
 
 using namespace std;
