@@ -2,7 +2,12 @@
 #include<queue>
 
 /*
-             
+    The approach is a top-down approach and would be implemented as follows:
+        > First we will be checking whether the root is NULL, if yes, return NULL.
+        > The we will check whether the root data is equals to the value a or b, if yes, it would return the obtained value.
+        > If not, we will call the recursive function for the left and right subsequently.
+        > And then we will again check whether both the nodes are not equals to NULL or not, if true, that is the only answer.
+        > If any one is not NULL, then return that.
 */
 
 using namespace std;
@@ -35,7 +40,7 @@ Node* lca(Node* root, int a, int b){
     Node* leftans = lca(root -> left, a, b);
     Node* rightans = lca(root -> right, a, b);
 
-    if(leftans != NULL && right != NULL){
+    if(leftans != NULL && rightans != NULL){
         return root;
     }
 
