@@ -2,6 +2,20 @@
 #include<queue>
 using namespace std;
 
+/*
+    Here we will be writing two function for the build operation:
+        1. The first function is build itself where we are going to build the tree:
+            > We will first take an input of a number and create a NULL root.
+            > And then run a loop until we encounter -1 which marks NULL here.
+            > And then we will call the recursive function for the root with the value and store the returned value in the root.
+            > Finally return the root.
+        2. This is the recursive function of the build operation.
+            > Remember the new node will always be created and assigned to a position of NULL.
+            > we will check if the value from the function is less than or equal to the root val, then call the rec function for the left of root.
+            > else call for the right of the root.
+            > and if the root becomes NULL while traversing, that is the position where we are going to insert the new node. 
+*/
+
 
 struct Node{
     int data;
