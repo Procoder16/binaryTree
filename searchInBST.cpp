@@ -3,7 +3,11 @@
 using namespace std;
 
 /*
-     
+    The approach is very simple:
+        > Check if the root is NULL, is yes, that means we have reached the end of the tree without getting the NODE, so return false.
+        > If the root -> data == the number given, return true;
+        > else recursively search for the element in the tree's left if the node to be searched is less than the root.
+        > else, search in the right part of the tree. 
 */
 
 
