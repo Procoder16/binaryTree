@@ -2,6 +2,30 @@
 #include<queue>
 using namespace std;
 
+/*
+    The approach goes something like this:
+        > We will check whether the current node is a NULL, if yes, that means we have reached the end and hence the element is not found.
+        > Then, we will check that whether the key is less than the root value, if yes, we will call the recusive function for the left subtree.
+        > If found the node, there will be three cases, rather there can be three different types of nodes that can be deleted:
+            -> A node with zero children:
+                >> For this simply delete the node and return NULL
+            -> A node with one child:
+                >> First check which child is not NULL
+                >> Then store the value in a temp Node
+                >> delete the root(in this case)
+                >> return the temp Node
+            -> A  node with two children:
+                >> Remember, if we directly delete this node, then there would be two different trees formed and which we do not want.
+                >> So, we have to replace the value of the of a node with the root value.
+                >> So now which node would be replaced, and the answer is the immediate "INORDER SUCCESSOR".
+                >> So search for the immediate inorder successor in the right subtree by travering the left of the right subtree.
+                >> Basically we are searching the smallest node in the right subtree.
+                >> Replace the root value with that node's value.
+                >> Now we have to delete that node.
+                >> Now recursively call the delete node in a BST function for the right subtree(as the right subtree is going to change).
+                >> The parameters to be passed are root -> right and the replace -> val        
+*/
+
 struct Node{
     int data;
     Node* left;
