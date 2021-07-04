@@ -106,19 +106,19 @@ Node* deletionInBST(Node* root, int t){
 
         // Case 3: When the root has 2 children, here we have to replace the root with a nearest value
         // Here we will find the inorder successor of the current root.
-        else{
-            Node* replace = root -> right;
-            while(replace -> left != NULL){
-                replace = replace -> left;
-            }
-            root -> data = replace -> data;
-            root -> right = deletionInBST(root -> right, replace -> data);
-            return root;
-        }        
+        
+        Node* replace = root -> right;
+        while(replace -> left != NULL){
+            replace = replace -> left;
+        }
+        root -> data = replace -> data;
+        root -> right = deletionInBST(root -> right, replace -> data);
+        return root;
+                
     }
 
     else{ // checking the right subtree
-        root -> right = deletionInBST(root, t);
+        root -> right = deletionInBST(root -> right, t);
         return root;
     }
 }
