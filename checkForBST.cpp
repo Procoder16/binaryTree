@@ -4,7 +4,16 @@
 using namespace std;
 
 /*
-     
+    This is an easy question but the approach shouldn't be as simple as we think.
+    >> If we think of an approach something like this:
+        >> Check the root value if it is greater than or equals to the left root and smaller than right root.
+        >> And then check for the left subtree and the right subtree.
+        >> THEN THIS WOULD BE WRONG, as there can be an element in the right subtree with a number smaller than the root and vice - versa.
+    >> The approach we should follow here is:
+        >> We would first start with a minV equals to negative infinity and maxV equals to maximum infinity.
+        >> Then check for the root value if it is smaller than or equals to minV and greater than equals to maxV.
+        >> Also check for the left subtree and right subtree with parameters minV - root data and root - maxV respectively.
+        >> Else return false.     
 */
 
 
