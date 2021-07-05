@@ -100,11 +100,6 @@ Node* deletionInBST(Node* root, int t){
     if(root == NULL){  // base case
         return NULL;
     }
- 
-    else if(t < root -> data){   // is the given value is smaller than the root value
-        root -> left = deletionInBST(root -> left, t);
-        return root;
-    }
 
     else if(t == root -> data){
         // This is the place which states that we have found the root
@@ -140,6 +135,13 @@ Node* deletionInBST(Node* root, int t){
         return root;
                 
     }
+ 
+    else if(t < root -> data){   // is the given value is smaller than the root value
+        root -> left = deletionInBST(root -> left, t);
+        return root;
+    }
+
+    
 
     else{ // checking the right subtree
         root -> right = deletionInBST(root -> right, t);
