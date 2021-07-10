@@ -2,6 +2,35 @@
 #include<queue>
 using namespace std;
 
+/*
+    The approach we need to keep in mind is that we will be getting a linked list from the left and the right subtree and then combining
+    all the three parts, the left subtree made linked list, the root and the linked list from the right subtree.
+
+    Also remember we are not going to make an original linked list class, but just a pair class with the name of LinkedList as we are not 
+    going to take any extra space, rather, we will be using the tree itself and just changing and playing around with the nodes.
+
+    Now, keep in mind that in this question, there can be 4 cases:
+    
+        1. Only one node is there, the leaf node:
+            >> For this node, since it has no children, the head and the tail of the linkedlist is the root itself and hence return the ll.
+        2. The left subtree is not NULL:
+            >> Create a variable of the type LinkedList and store the linkedlist coming from the left subtree using the recursive function.
+            >> Now, the right of the tail of the linked list from the left part would be linked to the root.
+            >> And the head of the resultant linked list would be the head of this linked list itself.
+            >> Return the head.
+        3. The right subtree is not NULL:
+            >> Create a variable of the type LinkedList and store the linkedlist coming from the right subtree using the recursive function.
+            >> Now, in this case the root would be the head of the resultant linked list, so the right of the root would be linked to 
+            the head of the linked list coming from the right subtree.
+            >> Return the root.
+        4. Both the subtrees are not NULL:
+            >> Create a variable of the type LinkedList and store the linkedlist coming from the left and the right subtree using the 
+            recursive function.         
+            >> The tail of the left linkedlist would be connected to the root and the root would be connected to the head of the
+            right linked list.
+            >> Return the head of the left linked list.
+*/
+
 struct Node{
     int data;
     Node* left;
@@ -115,9 +144,9 @@ int main(){
     Node* temp = l.head;
 
     cout<<"THE NEW LINKED LIST:"<<endl;
-    while(temp != NULL){
+    while(temp != NULL){  // printing the linkedlist
         cout<<temp -> data<<"->";
-        temp = temp -> right;
+        temp = temp -> right; // since the linked list has no next as we are dealing with the same tree nodes.
     }
     cout<<"NULL";
     return 0;
