@@ -46,6 +46,38 @@ void bfs(Node* root){
     }
 }
 
+void reverseLevelOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+
+    queue<Node*> q;
+    stack<Node*> s;
+
+    q.push(root);
+    
+    Node* temp;
+
+    while(!q.empty()){
+        temp = q.front();
+        q.pop();
+        s.push(temp);
+
+        if(temp -> right){
+            q.push(temp -> right);
+        }
+        if(temp -> left){
+            q.push(temp -> left);
+        }
+    }
+
+    while(!s.empty()){
+        Node* tempVal = s.top();
+        cout<<tempVal -> data<<" ";
+        s.pop();
+    }
+}
+
 int main(){
 
     Node* root = new Node(1);
@@ -60,6 +92,9 @@ int main(){
 
     cout<<"THE TREE LOOKS SOMETHING LIKE THIS:"<<endl;
     bfs(root);
+
+    cout<<"THE LEVEL ORDER TRAVERSAL IN REVERSE ORDER WOULD BE:"<<endl;
+    reverseLevelOrder(root);
 
     return 0;
 }
