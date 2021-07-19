@@ -40,6 +40,10 @@ Node* lca(Node* root, int a, int b){
     Node* leftans = lca(root -> left, a, b);
     Node* rightans = lca(root -> right, a, b);
 
+    if(leftans == NULL && rightans == NULL){
+        return NULL;
+    }
+
     if(leftans != NULL && rightans != NULL){
         return root;
     }
@@ -74,7 +78,7 @@ int main(){
          8  
     */
     
-    int a = 8, b = 7;
+    int a = 8, b = 5;
 
     cout<<lca(root, a, b) -> data;
 
