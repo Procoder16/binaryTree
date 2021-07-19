@@ -40,15 +40,15 @@ Node* lca(Node* root, int a, int b){
     Node* leftans = lca(root -> left, a, b);
     Node* rightans = lca(root -> right, a, b);
 
-    if(leftans == NULL && rightans == NULL){
+    if(leftans == NULL && rightans == NULL){  // if both the recursive calls for that particular node is NULL
         return NULL;
     }
 
-    if(leftans != NULL && rightans != NULL){
+    if(leftans != NULL && rightans != NULL){  // if both are not NULL (this is the final answer)
         return root;
     }
 
-    if(leftans!= NULL){
+    if(leftans!= NULL){ // if any of the two is not NULL, then return that particular node
         return leftans;
     }
     return rightans;
