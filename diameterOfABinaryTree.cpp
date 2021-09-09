@@ -44,7 +44,7 @@ int calcDiameter(Node* root){
     int h1 = heightOfBinaryTree(root -> left);
     int h2 = heightOfBinaryTree(root -> right);
 
-    int op1 = h1 + h2;
+    int op1 = h1 + h2 + 1;
 
     int op2 = calcDiameter(root -> left);
     int op3 = calcDiameter(root -> right);
