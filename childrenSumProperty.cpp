@@ -46,6 +46,8 @@ void modifiedBFS(Node* root){
 
 void childSumPropertyModification(Node* root){
 
+    // Going down steps
+
     if(root == NULL){
         return;
     }
@@ -74,6 +76,8 @@ void childSumPropertyModification(Node* root){
     childSumPropertyModification(root -> left);
     childSumPropertyModification(root -> right);
 
+    //backtracking steps
+
     int total = 0;
     if(root -> left){
         total += root -> left -> data;
@@ -82,7 +86,7 @@ void childSumPropertyModification(Node* root){
         total += root -> right -> data;
     }
 
-    if(root -> left || root -> right){
+    if(root -> left || root -> right){  // checking whether the node is leaf or not... as the sum could only be done for non-leaf nodes
         root -> data = total;
     }
 }
