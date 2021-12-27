@@ -1,6 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+    *One may think that for each node we would check whether the right child is greater and the left child is smaller or not.
+    But the logic is not correct. According to the definition of BST, all the nodes in the left subtree should be smaller and
+    vice versa for the right subtree. So, if we apply this logic, the binary tree - 2 below would also return true but that
+    is not a valid BST.
+
+    *So one of the correct approaches would be two first store the inorder traversal of the tree in an array and then check
+    whether the tree is sorted in ascending order or not. If yes, then it is a BST or else, NO.
+    This approach has a time complexity of O(n) and a space complexity of O(n) too.
+
+    *So we can have a much better and space-optimal solution for the same:
+        *) We will be using a helper function that takes the node, min variable and max variable as the parameters.
+        *) At the validBST function we will be calling the helper function with the root, INT_MIN, INY_MAX passed as the arguments.
+        *) At the helper function we will check whether the root is NULL or not as the base condition.
+        *) Then we would check whether the root -> data is less than min or the more than max. If yes, return false.
+        *) Else we would be calling the function recursively for the left and the right subtree with paratameters as follows:
+            -> for left, min should be the min itself but the max should be root data - 1
+            -> for right, min should be root -> data + 1 and the max would be max only
+    The basic idea is we are setting a max and min value for each node and the subnodes respectively. Why??? Because the modes 
+    in the left subtree can have a max value of root -> data -1 and the right subtree can have a min value of root -> data + 1           
+*/
+
 struct Node{
 
     int data;
