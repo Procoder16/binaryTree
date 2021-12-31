@@ -1,3 +1,4 @@
+//Path from root to a particular node
 #include<bits/stdc++.h>
 using namespace std;
 
