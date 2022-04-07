@@ -18,12 +18,12 @@ int calculationPathSum(Node* root, int &maxSum){
         return 0;
     }
 
-    int leftSum = calculationPathSum(root -> left, maxSum);
-    int rightSum = calculationPathSum(root -> right, maxSum);
+    int leftSum = max(0, calculationPathSum(root -> left, maxSum));
+    int rightSum = max(0, calculationPathSum(root -> right, maxSum));
 
     maxSum = max(maxSum, leftSum + rightSum + root -> data);
 
-    return (root -> data + leftSum + rightSum);
+    return (root -> data + max(leftSum, rightSum));
 }
 
 int maxPathSum(Node* root){
