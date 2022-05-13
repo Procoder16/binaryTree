@@ -1,3 +1,5 @@
+// Right view of a binary tree solution added
+
 #include<iostream>
 #include<queue>
 
