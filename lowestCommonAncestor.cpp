@@ -27,31 +27,20 @@ struct Node
 
 // assuming both a and b are present in the tree and all keys are unique
 Node* lca(Node* root, int a, int b){
-    if(root == NULL){
-        return NULL;
-    }
-
-    if(root -> data == a || root -> data == b){
+    if(root == NULL || root -> data == a || root -> data == b){
         return root;
     }
 
-    // now searching in the subtrees
+    Node* leftA = lca(root -> left, a, b);
+    Node* rightA = lca(root -> right, a, b);
 
-    Node* leftans = lca(root -> left, a, b);
-    Node* rightans = lca(root -> right, a, b);
-
-    if(leftans == NULL && rightans == NULL){  // if both the recursive calls for that particular node is NULL
-        return NULL;
+    if(leftA == NULL){
+        return rightA;
     }
-
-    if(leftans != NULL && rightans != NULL){  // if both are not NULL (this is the final answer)
-        return root;
+    else if(rightA == NULL){
+        return leftA;
     }
-
-    if(leftans!= NULL){ // if any of the two is not NULL, then return that particular node
-        return leftans;
-    }
-    return rightans;
+    return root;
 }
 
 int main(){
