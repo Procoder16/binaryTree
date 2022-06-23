@@ -1,5 +1,6 @@
 //Max width in a binary tree
-#include<bits/stdc++.h>
+#include<iostream>
+#include<queue>
 using namespace std;
 
 struct Node{
