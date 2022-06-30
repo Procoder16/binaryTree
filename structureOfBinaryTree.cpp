@@ -95,28 +95,32 @@ void levelOrder(Node* root){
 
 int main(){
 
-    struct Node* root = new Node(1);
+    struct Node* root = new Node(12);
 
-    root -> left = new Node(2);
-    root -> right = new Node(3);
+    root -> left = new Node(34);
+    root -> right = new Node(45);
 
-    root -> left -> left = new Node(4);
-    root -> left -> right = new Node(5);
+    root -> left -> left = new Node(78);
+    root -> left -> right = new Node(89);
 
-    root -> right -> left = new Node(6);
-    root -> right -> right = new Node(7);
+    root -> right -> left = new Node(65);
+    root -> right -> right = new Node(77);
 
     /*
-                1
+                12
               /   \
-             2     3
+             34    45 
             / \   / \
-           4   5 6   7
+           78 89 65 77
     */
 
-    //preOrder(root);
-    //inOrder(root);
-    //postOrder(root);
+    cout<<"PREORDER TRAVERSAL: ";
+    preOrder(root);
+    cout<<"\nINORDER TRAVERSAL: ";
+    inOrder(root);
+    cout<<"\nPOSTORDER TRAVERSAL: ";
+    postOrder(root);
+    cout<<"\nLEVEL ORDER TRAVERSAL: ";
     levelOrder(root);
 
     return 0;
