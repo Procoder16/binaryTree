@@ -1,5 +1,8 @@
 //Vertical Order Print
-#include<bits/stdc++.h>
+#include<iostream>
+#include<queue>
+#include<map>
+#include<set>
 using namespace std;
 
 struct Node{
