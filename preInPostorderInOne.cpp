@@ -1,4 +1,7 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<stack>
+#include<vector>
+
 using namespace std;
 
 struct Node
